@@ -1,0 +1,189 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:100,200,300,400,500,600,700|Exo:100,200,300,400,500,600,700');
+
+/* -----------------------------------------Colours */
+
+.bg-color-body {
+    background-color: #00008b;
+}
+
+.colour-main {
+	color: white;
+}
+
+.colour-option {
+	color: #fff;
+}
+
+/* -----------------------------------------Title Formatting */
+
+.title {
+    font-family: "Exo", sans-serif;
+    font-weight: 100;
+    font-size: 46px;
+    margin-top: 20px;
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+/* -----------------------------------------Intro Formatting */
+
+.intro {
+	font-family: "Exo", sans-serif;
+	font-weight: 100;
+    font-size: 12px;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+/* -----------------------------------------Image Formatting */
+
+.image-format {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin: 0 auto;  
+}
+
+.image-format2 {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin: 40px 50px 50px 50px;  
+    float: left;
+}
+
+.image-simon {
+    background-image: url("../images/simon_pic.jpg"); 
+}
+
+.image-anchor {
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+}
+
+.image-home {
+	width:400px;
+    height:400px;
+}
+
+.image-rules {
+	width:500px;
+    height:500px;
+}
+
+.image-play {
+	width:100px;
+    height:100px;
+}
+
+/* -----------------------------------------Rules Formatting */
+
+.rules-header {
+	font-size: 24px;
+	margin: 100px 50px 50px 50px;  
+}
+
+.rules {
+    font-size: 20px;
+    margin: 10px 50px 50px 50px;  
+}
+
+.rules-header .rules {
+	font-family: "Exo", sans-serif;
+	font-weight: 100;
+}
+
+/* -----------------------------------------Option Formatting */
+
+nav {
+	text-align: center;
+	margin: 70px 0;
+	padding: 10px;
+}
+
+.rulesnav {
+	clear: left;
+	margin: 300px 0;
+}
+
+.option {
+	font-family: "Exo", sans-serif;
+	font-weight: 100;
+    font-size: 40px;
+    margin: 0 40px;
+    }
+
+.hvr-pulse-grow:after {
+    transition-duration: 0.5s; 
+    color: white;
+    background-color: rgba(0,0,0,0.2);  
+    height: 80px;
+}
+
+/* -----------------------------------------Play Formatting */
+
+.main-margin {
+	margin-top: 100px;
+}
+
+.inline-block-center {
+	text-align: center;
+}
+
+.inline-block-center div {
+	display: inline-block;
+	text-align: left;
+}
+
+.trapezium .trapezium2 .trapezium3 trapezium4 {
+	height: 0;  
+	width: 80px;
+}
+
+.trapezium {
+	border-bottom: 80px solid yellow;		
+	border-left: 40px solid transparent;
+	border-right: 40px solid transparent;
+	padding: 50px;
+	transform: rotate(45deg);
+}
+
+.trapezium2 {
+	border-bottom: 80px solid green;
+	border-left: 40px solid transparent;
+	border-right: 40px solid transparent;
+	transform: rotate(135deg);
+	padding: 50px;
+}
+
+.trapezium3 {
+	border-bottom: 80px solid blue;
+	border-left: 40px solid transparent;
+	border-right: 40px solid transparent;
+	transform: rotate(315deg);
+	padding: 50px;
+}
+
+.trapezium4 {
+	border-bottom: 80px solid red;
+	border-left: 40px solid transparent;
+	border-right: 40px solid transparent;
+	transform: rotate(225deg);  
+	padding: 50px; 
+}
+
+.play-nav {
+	margin-top: 120px;
+}
+
+#button {
+	background-color: red;
+	color: white;
+	display: inline-block;
+	font-size: 48px;
+	border-radius: 50%;
+	float: right;
+	margin-right: 200px;
+}
+
