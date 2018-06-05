@@ -3,7 +3,7 @@
 /* -----------------------------------------Colours */
 
 .bg-color-body {
-    background-color: #00008b;
+    background-color: #42cccb;
 }
 
 .colour-main {
@@ -14,10 +14,13 @@
 	color: #fff;
 }
 
-/* -----------------------------------------Title Formatting */
+/* -----------------------------------------General Formatting */
+
+body {
+    font-family: "Exo", sans-serif;
+}
 
 .title {
-    font-family: "Exo", sans-serif;
     font-weight: 100;
     font-size: 46px;
     margin-top: 20px;
@@ -28,7 +31,6 @@
 /* -----------------------------------------Intro Formatting */
 
 .intro {
-	font-family: "Exo", sans-serif;
 	font-weight: 100;
     font-size: 12px;
     text-align: center;
@@ -45,9 +47,6 @@
 }
 
 .image-format2 {
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
     margin: 40px 50px 50px 50px;  
     float: left;
 }
@@ -62,26 +61,31 @@
     width: 100%;
 }
 
+.image-responsive {
+    width: 100%;	
+}
+
 .image-home {
-	width:400px;
-    height:400px;
+    max-width: 400px;
+    height: 400px;
 }
 
 .image-rules {
-	width:500px;
+	max-width:500px;
     height:500px;
 }
 
 .image-play {
-	width:100px;
+	max-width:100px;
     height:100px;
 }
+
 
 /* -----------------------------------------Rules Formatting */
 
 .rules-header {
 	font-size: 24px;
-	margin: 100px 50px 50px 50px;  
+	margin: 75px 50px 50px 50px;  
 }
 
 .rules {
@@ -90,13 +94,12 @@
 }
 
 .rules-header .rules {
-	font-family: "Exo", sans-serif;
 	font-weight: 100;
 }
 
 /* -----------------------------------------Option Formatting */
 
-nav {
+.nav {
 	text-align: center;
 	margin: 70px 0;
 	padding: 10px;
@@ -108,7 +111,6 @@ nav {
 }
 
 .option {
-	font-family: "Exo", sans-serif;
 	font-weight: 100;
     font-size: 40px;
     margin: 0 40px;
@@ -136,24 +138,27 @@ nav {
 	text-align: left;
 }
 
-.trapezium .trapezium2 .trapezium3 trapezium4 {
+.trapezium1 .trapezium2 .trapezium3 .trapezium4 .high1 .high2 .high3 .high4 {
 	height: 0;  
 	width: 80px;
 }
 
-.trapezium {
+.trapezium1 {
 	border-bottom: 80px solid yellow;		
 	border-left: 40px solid transparent;
 	border-right: 40px solid transparent;
-	padding: 50px;
-	transform: rotate(45deg);
+	padding: 50px;  
+/*	width: 10vw;
+	height: 10vw;
+	background-color: yellow;  */
+	transform: rotate(135deg);
 }
 
 .trapezium2 {
 	border-bottom: 80px solid green;
 	border-left: 40px solid transparent;
 	border-right: 40px solid transparent;
-	transform: rotate(135deg);
+	transform: rotate(225deg);
 	padding: 50px;
 }
 
@@ -169,21 +174,56 @@ nav {
 	border-bottom: 80px solid red;
 	border-left: 40px solid transparent;
 	border-right: 40px solid transparent;
-	transform: rotate(225deg);  
+	transform: rotate(45deg);  
 	padding: 50px; 
 }
 
-.play-nav {
+.high1 {
+	border-bottom: 80px solid black;		
+	border-left: 40px solid transparent;
+	border-right: 40px solid transparent;
+	padding: 50px;
+	transform: rotate(135deg);
+}
+
+.high2 {
+	border-bottom: 80px solid black;
+	border-left: 40px solid transparent;
+	border-right: 40px solid transparent;
+	transform: rotate(225deg);
+	padding: 50px;
+}
+
+.high3 {
+	border-bottom: 80px solid black;
+	border-left: 40px solid transparent;
+	border-right: 40px solid transparent;
+	transform: rotate(315deg);
+	padding: 50px;
+}
+
+.high4 {
+	border-bottom: 80px solid black;
+	border-left: 40px solid transparent;
+	border-right: 40px solid transparent;
+	transform: rotate(45deg);  
+	padding: 50px; 
+}
+
+.playnav {
 	margin-top: 120px;
 }
 
-#button {
+.button {
 	background-color: red;
 	color: white;
 	display: inline-block;
 	font-size: 48px;
-	border-radius: 50%;
+	border-radius: 100%;
 	float: right;
-	margin-right: 200px;
+	margin: 0 auto;
+	padding: 10px;
 }
 
+
+/* -----------------------------------------Media Queries */
