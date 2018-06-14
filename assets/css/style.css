@@ -138,24 +138,19 @@ body {
 	text-align: left;
 }
 
-.trapezium1 .trapezium2 .trapezium3 .trapezium4 .high1 .high2 .high3 .high4 {
+.trapezium1, .trapezium2, .trapezium3, .trapezium4, .high1, .high2, .high3, .high4 {
 	height: 0;  
 	width: 80px;
 }
 
 .trapezium1 {
-	border-bottom: 80px solid yellow;		
 	border-left: 40px solid transparent;
 	border-right: 40px solid transparent;
 	padding: 50px;  
-/*	width: 10vw;
-	height: 10vw;
-	background-color: yellow;  */
 	transform: rotate(135deg);
 }
 
 .trapezium2 {
-	border-bottom: 80px solid green;
 	border-left: 40px solid transparent;
 	border-right: 40px solid transparent;
 	transform: rotate(225deg);
@@ -163,7 +158,6 @@ body {
 }
 
 .trapezium3 {
-	border-bottom: 80px solid blue;
 	border-left: 40px solid transparent;
 	border-right: 40px solid transparent;
 	transform: rotate(315deg);
@@ -171,7 +165,6 @@ body {
 }
 
 .trapezium4 {
-	border-bottom: 80px solid red;
 	border-left: 40px solid transparent;
 	border-right: 40px solid transparent;
 	transform: rotate(45deg);  
@@ -179,7 +172,6 @@ body {
 }
 
 .high1 {
-	border-bottom: 80px solid black;		
 	border-left: 40px solid transparent;
 	border-right: 40px solid transparent;
 	padding: 50px;
@@ -187,7 +179,6 @@ body {
 }
 
 .high2 {
-	border-bottom: 80px solid black;
 	border-left: 40px solid transparent;
 	border-right: 40px solid transparent;
 	transform: rotate(225deg);
@@ -195,7 +186,6 @@ body {
 }
 
 .high3 {
-	border-bottom: 80px solid black;
 	border-left: 40px solid transparent;
 	border-right: 40px solid transparent;
 	transform: rotate(315deg);
@@ -203,11 +193,30 @@ body {
 }
 
 .high4 {
-	border-bottom: 80px solid black;
 	border-left: 40px solid transparent;
 	border-right: 40px solid transparent;
 	transform: rotate(45deg);  
 	padding: 50px; 
+}
+
+.trapcolor1 {
+	border-bottom: 80px solid yellow;
+}
+
+.trapcolor2 {
+	border-bottom: 80px solid green;
+}
+
+.trapcolor3 {
+	border-bottom: 80px solid blue;
+}
+
+.trapcolor4 {
+	border-bottom: 80px solid red;
+}
+
+.high {
+	border-bottom: 80px solid black;		
 }
 
 .playnav {

@@ -1,14 +1,16 @@
 $(document).ready(function() {
 
 function changeColorBack(element, curNumber) {
-    element.removeClass('high' + curNumber, 500);
-    element.addClass('trapezium' + curNumber, 500);
+    element.removeClass('high', 500);
+    element.addClass('trapcolor' + curNumber, 500);
 }
 
 function changeColor(element, curNumber) {
-    element.removeClass('trapezium' + curNumber, 500);
-    element.addClass('high' + curNumber,500);
-    setTimeout(function(){changeColorBack(element, curNumber)}, 2000); 
+    element.removeClass('trapcolor' + curNumber, 500);
+    element.addClass('high',500);
+//    setTimeout(function(){changeColorBack(element, curNumber)}, 2000); 
+//    setTimeout(function(){console.log('xxxx')}, 2000); 
+    
 }
 
 function delayScript(milliSeconds) {
@@ -36,7 +38,7 @@ function checkResponse(numArray, roundNum, clickError, outOfTime) {
             console.log('numArray = ' + numArray[j]);
             shapeClicked = 'Y';
             if (numArray[j] !== 1) {
-                alert('you lose');
+                console.log('you lose');
                 clickError = 'Y';
             }    
         });
@@ -45,7 +47,7 @@ function checkResponse(numArray, roundNum, clickError, outOfTime) {
             console.log('numArray = ' + numArray[j]);
             shapeClicked = 'Y';
             if (numArray[j] !== 2) {
-                alert('you lose');
+                console.log('you lose');
                 clickError = 'Y';                
             }    
         });  
@@ -54,7 +56,7 @@ function checkResponse(numArray, roundNum, clickError, outOfTime) {
             console.log('numArray = ' + numArray[j]);
             shapeClicked = 'Y';
             if (numArray[j] !== 3) {
-                alert('you lose');
+                console.log('you lose');
                 clickError = 'Y';
             }    
         });
@@ -63,7 +65,7 @@ function checkResponse(numArray, roundNum, clickError, outOfTime) {
             console.log('numArray = ' + numArray[j]);
             shapeClicked = 'Y';
             if (numArray[j] !== 4) {
-                alert('you lose');
+                console.log('you lose');
                 clickError = 'Y';
             }    
         });
@@ -72,7 +74,7 @@ function checkResponse(numArray, roundNum, clickError, outOfTime) {
         }
         
         if (shapeClicked == 'N') {
-            alert('out of time');
+            console.log('out of time');
             outOfTime = 'Y'; 
             break;
         }    
@@ -107,6 +109,7 @@ function checkResponse(numArray, roundNum, clickError, outOfTime) {
                 console.log('2nd loop - i = ' + i + ', roundNum = ' + roundNum);
                 var shapeNum = numArray[i];
                 changeColor($('#shape' + shapeNum), shapeNum);
+                setTimeout(function(){$('#shape' + shapeNum).removeClass('high' + shapeNum) }, 2000); 
                 console.log('changeColor ' + shapeNum);
 // Delay for a few seconds between shapes before looping round again
                 delayScript(5000);
