@@ -3,7 +3,17 @@
 /* -----------------------------------------Colours */
 
 .bg-color-body {
-    background-color: #42cccb;
+/*    background-color: #42cccb;   */
+
+/*  STARRY NIGHT  */
+	background-color:black;
+ 	background-image:
+ 		radial-gradient(white, rgba(255,255,255,.2) 2px, transparent 40px),
+		radial-gradient(white, rgba(255,255,255,.15) 1px, transparent 30px),
+		radial-gradient(white, rgba(255,255,255,.1) 2px, transparent 40px),
+		radial-gradient(rgba(255,255,255,.4), rgba(255,255,255,.1) 2px, transparent 30px);
+	background-size: 550px 550px, 350px 350px, 250px 250px, 150px 150px; 
+	background-position: 0 0, 40px 60px, 130px 270px, 70px 100px;
 }
 
 .colour-main {
@@ -126,7 +136,15 @@ body {
 /* -----------------------------------------Play Formatting */
 
 .main-margin {
-	margin-top: 100px;
+	margin-top: 50px;
+}
+
+.score {
+	color: white;
+	display: inline-block;
+	font-size: 18px;
+	margin: 0 auto;
+	padding-left: 20px;
 }
 
 .inline-block-center {
@@ -216,11 +234,11 @@ body {
 }
 
 .high {
-	border-bottom: 80px solid black;		
+	border-bottom: 80px solid white;		
 }
 
 .playnav {
-	margin-top: 120px;
+	margin-top: 10px;
 }
 
 .button {
@@ -229,7 +247,6 @@ body {
 	display: inline-block;
 	font-size: 48px;
 	border-radius: 100%;
-	float: right;
 	margin: 0 auto;
 	padding: 10px;
 }
