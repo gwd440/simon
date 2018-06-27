@@ -1,20 +1,27 @@
 $(document).ready(function() {
 
-    var numArray = [ ];
-    var i;          // index for outputting shape colour changes
-    var roundNum = 1;
-    var outOfTime;
-    var start = false;
-    var clickNum = 0;
+    var numArray = [ ];         // holds the numbers corresponding to the shape elements
+    var i;                      // index for outputting shape colour changes
+    var roundNum = 1;           // the Round Number
+    var start = false;          // Game started? 
+    var clickNum = 0;           // Number of user clicks within round
     var shapeNum = 0;
     var scoreText;
-    var maxRounds = 3;
-    var shapeFlash = 1000;
-    var slowSpeed = 1000;
-    var mediumSpeed = 500;
-    var fastSpeed = 250;
-    var blinkAndYouMissIt = 125;
-
+    var maxRounds = 20;         // Maximum number of rounds in game
+    var shapeFlash = 1000;      // Initial speed of the element colour change
+    var mediumSpeed = 500;      // Medium speed for element colour change
+    var fastSpeed = 250;        // Fast speed for element colour change
+    var blinkAndYouMissIt = 125;    // Very fast speed for element colour change
+    var numberOfGames = 0;      //  Number of games played
+    
+    var messageArray = ["Hmm, maybe this isn't the game for you",   
+                        "Oh come on! You're not even trying.", 
+                        "Well! Is that the best you can do?",
+                        "Have you considered noughts and crosses?",
+                        "Oops, that's not right - you lose!",
+                        "Oooh. Bad luck, better luck next time!"];
+    var loserMessage;
+    var messageIndex;
 
 function buildColorArray() {
 // Build array of 20 random numbers (1-4)
@@ -26,67 +33,50 @@ function buildColorArray() {
 }
 
 function setLights() {
-// Sets the appropriate elements to change colour    
-    console.log('i = ' + i + 'roundNum = ' + roundNum);
+// Selects the appropriate elements to change colour    
     if (i >= roundNum) {
-        console.log('end of lights for round ' + roundNum);
         return;
     } 
-    console.log('i = ' + i + ' roundNum = ' + roundNum);
     shapeNum = numArray[i];
     i++;    
     setTimeout(function(){changeColor($('#shape' + shapeNum), shapeNum)}, shapeFlash);
 } 
 
 function changeColor(element, curNumber) {
-    element.removeClass('trapcolor' + curNumber, 500);
-    element.addClass('high',500);
-    console.log('changeColor');
+// Changing the element colour   
+    element.removeClass('trapcolor' + curNumber);
+    element.addClass('high');
     setTimeout(function(){changeColorBack(element, curNumber)}, shapeFlash); 
 }
 
 function changeColorBack(element, curNumber) {
-    element.removeClass('high', 500);
-    element.addClass('trapcolor' + curNumber, 500);
+// Changing the element colours back 
+    element.removeClass('high');
+    element.addClass('trapcolor' + curNumber);
     setLights();
 }
 
-function delayScript(milliSeconds) {
-    var startTime = Date.now();
-    var endTime = startTime + 5000;
-    console.log('A'+ startTime);
-    console.log('B'+ endTime);
-    while (startTime < endTime) {
-        startTime = Date.now();
-    } 
-}
-
 function checkResponse() {
-    if (shapeNum !== numArray[clickNum]) {
-        clickError = true;
-        console.log('error');
-        alert("Oops, that's not right - you lose!");
+// Processing the user response    
+    if (shapeNum !== numArray[clickNum]) {          // user has clicked on the wrong element
+        getLoserMessage();
+        alert(loserMessage);
         initGame();
         return;
-    } else {
+    } else {                                        // user has clicked on the correct element, continue
         clickNum ++;
-        console.log('ok');
-        console.log('clickNum = ' + clickNum + ' roundNum = ' + roundNum);
-        if (clickNum >= roundNum) {
+        if (clickNum >= roundNum) {                 // checking for the end of the round
             scoreText = 'Score = ' + roundNum;
-            $(".score").text(scoreText);
+            $(".score").text(scoreText);            // update score on page
             roundNum ++;
-            if (roundNum > 13) {
+            if (roundNum == 14) {                    // change flash speed if required
                 shapeFlash = blinkAndYouMissIt; 
-            } else if (roundNum > 9) {
+            } else if (roundNum == 10) {
                 shapeFlash = fastSpeed;
-            } else if (roundNum > 5) {
+            } else if (roundNum == 6) {
                 shapeFlash = mediumSpeed;
-            } else {
-                shapeFlash =slowSpeed;
-            }
-            if (clickNum >= maxRounds) {
-                console.log('clickNum = ' + clickNum + ' maxRounds = ' + maxRounds);
+            } 
+            if (clickNum >= maxRounds) {        // check to see if we have reached the last round
                 alert("CONGRATULATIONS - YOU WIN");
                 initGame();                
                 return;
@@ -101,7 +91,7 @@ function checkResponse() {
 function initGame() {
 // Initialise variables ready for new game    
     numArray = [ ];
-    i = 0;          // index for outputting shape colour changes
+    i = 0;          
     roundNum = 1;
 //    outOfTime;
     start = false;
@@ -110,12 +100,33 @@ function initGame() {
     shapeFlash = 2000;
 }
 
-    console.log('Start of main3.js ');
+function getLoserMessage () {
+//  First couple of games get a set message, then lower attempts get 
+//  random loser messages.
+//  Better attempts get more encouragement
+
+    if (numberOfGames == 1) {
+        loserMessage = messageArray[4];
+    } else if (numberOfGames == 2) {
+        loserMessage = messageArray[5];
+    } else if (roundNum < 13) {
+        messageIndex = (Math.floor(Math.random() * 6 + 1)) - 1;
+        loserMessage = messageArray[messageIndex];
+    } else if (roundNum < 15) {
+        loserMessage = "Good effort. Try again.";
+    } else if (roundNum < 17) {
+        loserMessage = "Now we're getting the hang of it. Keep going.";
+    } else { 
+        loserMessage = "Ohhh!  So close! Have another go.";
+    }    
+}
+
+// Script starts here when START! button is clicked
 
     $("button").click(function() {
         if (start == false) {           // prevent game starting when game already in progress
             start = true;
-            console.log('A ' + roundNum);
+            numberOfGames++;
             if (numArray.length == 0) {
                 buildColorArray();
             }    
@@ -123,38 +134,36 @@ function initGame() {
             setLights();
         }    
     });
-    
+
+// Checking for the user mouse clicks
+
     $("#shape1").click(function() {
         console.log('trapezium1 clicked');
-        console.log('numArray = ' + numArray[clickNum]);
         shapeNum = 1;
         checkResponse();
     });
     
     $("#shape2").click(function() {
         console.log('trapezium2 clicked');
-        console.log('numArray = ' + numArray[clickNum]);
         shapeNum = 2;
         checkResponse();
     });   
     
     $("#shape3").click(function() {
         console.log('trapezium3 clicked');
-        console.log('numArray = ' + numArray[clickNum]);
         shapeNum = 3;
         checkResponse();
     });  
     
     $("#shape4").click(function() {
         console.log('trapezium4 clicked');
-        console.log('numArray = ' + numArray[clickNum]);
         shapeNum = 4;
         checkResponse();
     });
 
-    if (clickNum >= maxRounds) {
-        alert("CONGRATULATIONS - YOU WIN");
-        initGame();
-    }
+//    if (clickNum >= maxRounds) {
+//        alert("CONGRATULATIONS - YOU WIN");
+//        initGame();
+//    }
         
 });    

@@ -142,7 +142,7 @@ body {
 .score {
 	color: white;
 	display: inline-block;
-	font-size: 18px;
+	font-size: 22px;
 	margin: 0 auto;
 	padding-left: 20px;
 }
@@ -159,62 +159,41 @@ body {
 .trapezium1, .trapezium2, .trapezium3, .trapezium4, .high1, .high2, .high3, .high4 {
 	height: 0;  
 	width: 80px;
-}
-
-.trapezium1 {
 	border-left: 40px solid transparent;
 	border-right: 40px solid transparent;
 	padding: 50px;  
+}
+
+.trapezium1 {
 	transform: rotate(135deg);
 }
 
 .trapezium2 {
-	border-left: 40px solid transparent;
-	border-right: 40px solid transparent;
 	transform: rotate(225deg);
-	padding: 50px;
 }
 
 .trapezium3 {
-	border-left: 40px solid transparent;
-	border-right: 40px solid transparent;
 	transform: rotate(315deg);
-	padding: 50px;
 }
 
 .trapezium4 {
-	border-left: 40px solid transparent;
-	border-right: 40px solid transparent;
 	transform: rotate(45deg);  
-	padding: 50px; 
 }
 
 .high1 {
-	border-left: 40px solid transparent;
-	border-right: 40px solid transparent;
-	padding: 50px;
 	transform: rotate(135deg);
 }
 
 .high2 {
-	border-left: 40px solid transparent;
-	border-right: 40px solid transparent;
 	transform: rotate(225deg);
-	padding: 50px;
 }
 
 .high3 {
-	border-left: 40px solid transparent;
-	border-right: 40px solid transparent;
 	transform: rotate(315deg);
-	padding: 50px;
 }
 
 .high4 {
-	border-left: 40px solid transparent;
-	border-right: 40px solid transparent;
 	transform: rotate(45deg);  
-	padding: 50px; 
 }
 
 .trapcolor1 {
