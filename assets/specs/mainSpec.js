@@ -6,7 +6,12 @@ describe("main3", function() {
             for (i = 1; i <= 20; i++) {
                 numArray.push(Math.floor(Math.random() * 4 + 1));
             }
-            expect(numArray).toContain(5);
+//            expect(numArray).toContain(5);  fail test
+            expect(numArray).toContain(1);  
+            expect(numArray).toContain(2);  
+            expect(numArray).toContain(3);  
+            expect(numArray).toContain(4);  
+            
         });
 
     });

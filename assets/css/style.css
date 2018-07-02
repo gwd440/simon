@@ -216,6 +216,10 @@ body {
 	border-bottom: 80px solid white;		
 }
 
+.user {
+	border-bottom: 80px solid #ffccff;
+}
+
 .playnav {
 	margin-top: 10px;
 }

@@ -43,7 +43,7 @@ function setLights() {
 } 
 
 function changeColor(element, curNumber) {
-// Changing the element colour   
+// Changing the element colour 
     element.removeClass('trapcolor' + curNumber);
     element.addClass('high');
     setTimeout(function(){changeColorBack(element, curNumber)}, shapeFlash); 
@@ -54,6 +54,20 @@ function changeColorBack(element, curNumber) {
     element.removeClass('high');
     element.addClass('trapcolor' + curNumber);
     setLights();
+}
+
+function changeUserColor(userElement, userCurNumber) {
+// Changing the element colour  
+    userElement.removeClass('trapcolor' + userCurNumber);
+    userElement.addClass('user');
+    setTimeout(function(){changeUserColorBack(userElement, userCurNumber)}, 0); 
+}
+
+function changeUserColorBack(userElement, userCurNumber) {
+// Changing the element colours back 
+    userElement.removeClass('user');
+    userElement.addClass('trapcolor' + userCurNumber);
+    checkResponse();
 }
 
 function checkResponse() {
@@ -115,7 +129,7 @@ function getLoserMessage () {
     } else if (roundNum < 15) {
         loserMessage = "Good effort. Try again.";
     } else if (roundNum < 17) {
-        loserMessage = "Now we're getting the hang of it. Keep going.";
+        loserMessage = "Now you're getting the hang of it. Keep going.";
     } else { 
         loserMessage = "Ohhh!  So close! Have another go.";
     }    
@@ -140,30 +154,29 @@ function getLoserMessage () {
     $("#shape1").click(function() {
         console.log('trapezium1 clicked');
         shapeNum = 1;
-        checkResponse();
+        setTimeout(function(){changeUserColor($('#shape' + '1'), 1)}, 0);
+//        checkResponse();
     });
     
     $("#shape2").click(function() {
         console.log('trapezium2 clicked');
         shapeNum = 2;
-        checkResponse();
+        setTimeout(function(){changeUserColor($('#shape' + '2'), 2)}, 0);
+//        checkResponse();
     });   
     
     $("#shape3").click(function() {
         console.log('trapezium3 clicked');
         shapeNum = 3;
-        checkResponse();
+        setTimeout(function(){changeUserColor($('#shape' + '3'), 3)}, 0);
+//        checkResponse();
     });  
     
     $("#shape4").click(function() {
         console.log('trapezium4 clicked');
         shapeNum = 4;
-        checkResponse();
+        setTimeout(function(){changeUserColor($('#shape' + '4'), 4)}, 0);
+//        checkResponse();
     });
 
-//    if (clickNum >= maxRounds) {
-//        alert("CONGRATULATIONS - YOU WIN");
-//        initGame();
-//    }
-        
 });    

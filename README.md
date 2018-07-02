@@ -117,5 +117,7 @@ General game play:
     progress
 2) After game has ended, the new game has a fresh array, and other variables are
     reset correctly.
+
+Played game on Google Chrome, Safari and Vivaldi.
     
 
