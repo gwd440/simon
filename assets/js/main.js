@@ -63,7 +63,7 @@ $(document).ready(function() {
     setTimeout(function(){changeUserColor($('#shape' + '4'), 4)}, 0);
   });
 
-// Build array of 20 random numbers (1-4)
+// buildColorArray - Builds array of 20 random numbers (1-4)
   function buildColorArray() {
     for (shapeIndex = 1; shapeIndex <= maxRounds; shapeIndex++) {
       numArray.push(Math.floor(Math.random() * 4 + 1));
@@ -71,9 +71,9 @@ $(document).ready(function() {
     console.log(numArray);
   }
 
-// Selects the appropriate elements to change colour 
+// setLights - Selects the appropriate element to change colour 
   function setLights() {
-    if (shapeIndex >= roundNum) {
+    if (shapeIndex >= roundNum) {               // check for end of current round
       return;
     } 
     shapeNum = numArray[shapeIndex];
@@ -81,7 +81,7 @@ $(document).ready(function() {
     setTimeout(function(){changeColor($('#shape' + shapeNum), shapeNum)}, shapeFlash);
   } 
 
-// Changing the element colour and output sound 
+// changeColor - Changes the element colour and outputs sound 
   function changeColor(element, curNumber) {
     element.removeClass('trapcolor' + curNumber);
     element.addClass('high');
@@ -90,14 +90,14 @@ $(document).ready(function() {
     setTimeout(function(){changeColorBack(element, curNumber)}, shapeFlash); 
   }
 
-// Changing the element colour back to original
+// changeColorBack - Changes the element colour back to original
   function changeColorBack(element, curNumber) {
     element.removeClass('high');
     element.addClass('trapcolor' + curNumber);
-    setLights();
+    setLights();                        // select the next shape to change color
   }
 
-// Changing the element colour after user has clicked  
+// changeUserColor - Changes the element colour after user has clicked on it 
   function changeUserColor(userElement, userCurNumber) {
     userElement.removeClass('trapcolor' + userCurNumber);
     userElement.addClass('user');
@@ -106,16 +106,18 @@ $(document).ready(function() {
     setTimeout(function(){changeUserColorBack(userElement, userCurNumber)}, 0); 
   }
 
-// Changing the element colours back after user click
+// changeUserColorBack - Changes the element colours back after user click
   function changeUserColorBack(userElement, userCurNumber) {
     userElement.removeClass('user');
     userElement.addClass('trapcolor' + userCurNumber);
     checkResponse();
   }
 
-// Processing the user response    
+// checkResponse - Processes the user response    
   function checkResponse() {
     if (shapeNum !== numArray[clickNum]) {          // user has clicked on the wrong element
+      var simonSound = new Audio('assets/sounds/thaigong.ff.A4.stereo.wav');
+      simonSound.play();  
       getLoserMessage();
       alert(loserMessage);
       initGame();
@@ -135,6 +137,8 @@ $(document).ready(function() {
         } 
         if (clickNum >= maxRounds) {                // check to see if we have reached the last round
           alert("CONGRATULATIONS - YOU WIN");
+          simonSound = new Audio('assets/sounds/397435__foolboymedia__crowd-cheer-ii.wav');
+          simonSound.play();  
           initGame();                
           return;
         }
@@ -145,7 +149,7 @@ $(document).ready(function() {
     }  
   }
 
-// Initialise variables ready for new game    
+// initGame - Initialises variables ready for new game    
   function initGame() {
     numArray = [ ];
     shapeIndex = 0;          
@@ -156,7 +160,7 @@ $(document).ready(function() {
     shapeFlash = 750;
   }
 
-//  Retrieve message for game over
+//  getLoserMessage - Retrieve message for game over
   function getLoserMessage () {
 //  First couple of games get a set message, then lower attempts get 
 //  random loser messages.
