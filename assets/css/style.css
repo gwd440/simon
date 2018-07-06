@@ -136,7 +136,7 @@ body {
 .score {
 	color: #ffffff;
 	display: inline-block;
-	font-size: 22px;
+	font-size: 26px;
 	margin: 0 auto;
 	padding-left: 20px;
 }
@@ -155,7 +155,7 @@ body {
 	width: 80px;
 	border-left: 40px solid transparent;
 	border-right: 40px solid transparent;
-	padding: 50px;  
+	padding: 30px;  
 }
 
 .trapezium1 {
@@ -215,7 +215,7 @@ body {
 }
 
 .playnav {
-	margin-top: 10px;
+	margin-top: 70px;
 }
 
 .button {
@@ -229,7 +229,7 @@ body {
 }
 
 .instruct {
-	font-size: 16px;
+	font-size: 24px;
 	color: #ffffff;
 	text-align: center;
 	margin: 0 auto;
