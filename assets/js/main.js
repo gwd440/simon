@@ -29,7 +29,7 @@ $(document).ready(function() {
 
 // Script starts here when START! button is clicked
 
-  $("button").click(function() {
+  $("#startButton").click(function() {
     if (!start) {               // prevent game starting when game already in progress
       start = true;
       numberOfGames++;
