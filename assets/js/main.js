@@ -3,11 +3,11 @@ $(document).ready(function() {
   var numArray = [ ];         // holds the numbers corresponding to the shape elements
   var shapeIndex;             // index used for accessing numArray
   var roundNum = 1;           // the Round Number
-  var start = false;          // Game started? 
+  var started = false;        // Game started? 
   var clickNum = 0;           // Number of user clicks within round
   var shapeNum = 0;
   var scoreText;
-  var maxRounds = 2;         // Maximum number of rounds in game
+  var maxRounds = 20;         // Maximum number of rounds in game
   var shapeFlash = 750;      // Initial speed of the element colour change
   var mediumSpeed = 500;      // Medium speed for element colour change
   var fastSpeed = 250;        // Fast speed for element colour change
@@ -30,8 +30,8 @@ $(document).ready(function() {
 // Script starts here when START! button is clicked
 
   $("#startButton").click(function() {
-    if (!start) {               // prevent game starting when game already in progress
-      start = true;
+    if (!started) {               // prevent game starting when game already in progress
+      started = true;
       loserMessage = " ";
       $(".end-message").text(loserMessage);
       numberOfGames++;
@@ -46,21 +46,41 @@ $(document).ready(function() {
 // Checking for the user mouse clicks
 
   $("#shape1").click(function() {
+    if (!started) {               // game hasn't started - output helpful message
+      $(".end-message").text("Click on centre image to start");
+      initGame();
+      return;  
+    }  
     shapeNum = 1;
     setTimeout(function(){changeUserColor($('#shape' + '1'), 1)}, 0);
   });
     
   $("#shape2").click(function() {
+    if (!started) {               // game hasn't started - output helpful message
+      $(".end-message").text("Click on centre image to start");
+      initGame();
+      return;  
+    }      
     shapeNum = 2;
     setTimeout(function(){changeUserColor($('#shape' + '2'), 2)}, 0);
   });   
     
   $("#shape3").click(function() {
+    if (!started) {               // game hasn't started - output helpful message
+      $(".end-message").text("Click on centre image to start");
+      initGame();
+      return;  
+    }      
     shapeNum = 3;
     setTimeout(function(){changeUserColor($('#shape' + '3'), 3)}, 0);
   });  
     
   $("#shape4").click(function() {
+    if (!started) {               // game hasn't started - output helpful message
+      $(".end-message").text("Click on centre image to start");
+      initGame();
+      return;  
+    }      
     shapeNum = 4;
     setTimeout(function(){changeUserColor($('#shape' + '4'), 4)}, 0);
   });
@@ -156,7 +176,7 @@ $(document).ready(function() {
     numArray = [ ];
     shapeIndex = 0;          
     roundNum = 1;
-    start = false;
+    started = false;
     clickNum = 0;
     shapeNum = 0;
     shapeFlash = 750;
