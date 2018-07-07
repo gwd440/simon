@@ -7,7 +7,7 @@ $(document).ready(function() {
   var clickNum = 0;           // Number of user clicks within round
   var shapeNum = 0;
   var scoreText;
-  var maxRounds = 20;         // Maximum number of rounds in game
+  var maxRounds = 2;         // Maximum number of rounds in game
   var shapeFlash = 750;      // Initial speed of the element colour change
   var mediumSpeed = 500;      // Medium speed for element colour change
   var fastSpeed = 250;        // Fast speed for element colour change
@@ -32,6 +32,8 @@ $(document).ready(function() {
   $("#startButton").click(function() {
     if (!start) {               // prevent game starting when game already in progress
       start = true;
+      loserMessage = " ";
+      $(".end-message").text(loserMessage);
       numberOfGames++;
       if (numArray.length == 0) {
         buildColorArray();
@@ -119,7 +121,7 @@ $(document).ready(function() {
       var simonSound = new Audio('assets/sounds/thaigong.ff.A4.stereo.wav');
       simonSound.play();  
       getLoserMessage();
-      alert(loserMessage);
+      $(".end-message").text(loserMessage);
       initGame();
       return;
     } else {                                        // user has clicked on the correct element, continue
@@ -136,7 +138,7 @@ $(document).ready(function() {
           shapeFlash = mediumSpeed;
         } 
         if (clickNum >= maxRounds) {                // check to see if we have reached the last round
-          alert("CONGRATULATIONS - YOU WIN");
+        $(".end-message").text("CONGRATULATIONS - YOU WIN");          
           simonSound = new Audio('assets/sounds/397435__foolboymedia__crowd-cheer-ii.wav');
           simonSound.play();  
           initGame();                
