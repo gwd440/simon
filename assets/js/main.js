@@ -45,45 +45,16 @@ $(document).ready(function() {
 
 // Checking for the user mouse clicks
 
-  $("#shape1").click(function() {
+	$(".button-click").click(function() {
     if (!started) {               // game hasn't started - output helpful message
       $(".end-message").text("Click on centre image to start");
       initGame();
       return;  
     }  
-    shapeNum = 1;
-    setTimeout(function(){changeUserColor($('#shape' + '1'), 1)}, 0);
-  });
-    
-  $("#shape2").click(function() {
-    if (!started) {               // game hasn't started - output helpful message
-      $(".end-message").text("Click on centre image to start");
-      initGame();
-      return;  
-    }      
-    shapeNum = 2;
-    setTimeout(function(){changeUserColor($('#shape' + '2'), 2)}, 0);
-  });   
-    
-  $("#shape3").click(function() {
-    if (!started) {               // game hasn't started - output helpful message
-      $(".end-message").text("Click on centre image to start");
-      initGame();
-      return;  
-    }      
-    shapeNum = 3;
-    setTimeout(function(){changeUserColor($('#shape' + '3'), 3)}, 0);
-  });  
-    
-  $("#shape4").click(function() {
-    if (!started) {               // game hasn't started - output helpful message
-      $(".end-message").text("Click on centre image to start");
-      initGame();
-      return;  
-    }      
-    shapeNum = 4;
-    setTimeout(function(){changeUserColor($('#shape' + '4'), 4)}, 0);
-  });
+    var clickedShape = $(this).attr('id');
+		shapeNum = clickedShape.slice(5,6);
+		setTimeout(function(){changeUserColor($('#' + clickedShape), shapeNum)}, 0);
+	});
 
 // buildColorArray - Builds array of 20 random numbers (1-4)
   function buildColorArray() {
@@ -137,7 +108,7 @@ $(document).ready(function() {
 
 // checkResponse - Processes the user response    
   function checkResponse() {
-    if (shapeNum !== numArray[clickNum]) {          // user has clicked on the wrong element
+    if (parseInt(shapeNum,10) !== numArray[clickNum]) {     // user has clicked on the wrong element
       var simonSound = new Audio('assets/sounds/thaigong.ff.A4.stereo.wav');
       simonSound.play();  
       getLoserMessage();
@@ -203,6 +174,4 @@ $(document).ready(function() {
       loserMessage = "Ohhh!  So close! Have another go.";
     }    
   }
-
-
 });    
