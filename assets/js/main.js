@@ -25,6 +25,7 @@ $(document).ready(function() {
                     "assets/sounds/Vibraphone.dampen.ff.G4.stereo.wav",
                     "assets/sounds/Vibraphone.dampen.ff.G3.stereo.wav",
                     "assets/sounds/Vibraphone.dampen.ff.E3.stereo.wav"];
+  var simonSound;                  
 
 
 // Script starts here when START! button is clicked
@@ -35,7 +36,7 @@ $(document).ready(function() {
       loserMessage = " ";
       $(".end-message").text(loserMessage);
       numberOfGames++;
-      if (numArray.length == 0) {
+      if (numArray.length === 0) {
         buildColorArray();
       }    
       shapeIndex = 0;
@@ -109,7 +110,7 @@ $(document).ready(function() {
 // checkResponse - Processes the user response    
   function checkResponse() {
     if (parseInt(shapeNum,10) !== numArray[clickNum]) {     // user has clicked on the wrong element
-      var simonSound = new Audio('assets/sounds/thaigong.ff.A4.stereo.wav');
+      simonSound = new Audio('assets/sounds/thaigong.ff.A4.stereo.wav');
       simonSound.play();  
       getLoserMessage();
       $(".end-message").text(loserMessage);
